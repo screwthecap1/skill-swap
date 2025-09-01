@@ -52,4 +52,12 @@ class User extends Authenticatable
     {
         return $this->role === Role::ADMIN;
     }
+
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class)
+            ->using(UserSkill::class)
+            ->withPivot(['level', 'exp_months'])
+            ->withTimestamps();
+    }
 }
