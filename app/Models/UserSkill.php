@@ -8,5 +8,5 @@ use App\Enums\SkillLevel;
 class UserSkill extends Model
 {
     protected $table = 'skill_user';
-    protected $casts = ['laravel' => SkillLevel::class];
+    protected $casts = ['level' => SkillLevel::class];
 }

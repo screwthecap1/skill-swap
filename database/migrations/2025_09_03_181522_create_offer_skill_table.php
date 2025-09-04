@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('offer_skill', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('offer_id')->constrained('offers')->cascadeOnDelete();
+            $table->foreignId('skill_id')->constrained('skills')->cascadeOnDelete();
+            $table->enum('type', ['offer', 'want']);
+            $table->string('level')->nullable();
             $table->timestamps();
         });
     }
